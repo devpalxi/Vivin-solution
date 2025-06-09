@@ -63,7 +63,9 @@ export default function RootLayout({
           <Footer />
         </div>
         <CookieConsent />
-        <Analytics />
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
         <CRMIntegration />
       </body>
     </html>
