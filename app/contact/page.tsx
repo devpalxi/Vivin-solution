@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import PageHeader from "@/components/ui/page-header";
 import ContactForm from "@/components/forms/contact-form";
 import CalendlyEmbed from "@/components/booking/calendly-embed";
@@ -10,39 +10,25 @@ export const metadata: Metadata = {
     "Get in touch with our team to discuss your project or schedule a free consultation.",
 };
 
-const helpOptions = [
-  "Schedule a marketing consultation",
-  "Submit a marketing services inquiry",
-  "Talk to our experts about your goals",
-  "Get expert insights tailored to your business",
-];
-
 export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       <PageHeader
         title="Contact Us"
-        subtitle="Have questions? Ready to get started? We’re here to listen, plan, and execute. Let’s create something extraordinary together."
+        subtitle="Get in touch with our team to discuss your project or schedule a free consultation"
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
         <div>
-          <ContactForm helpOptions={helpOptions} />
+          <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+          <ContactForm />
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold mb-6">
-            Here's How You Can Reach Us
-          </h2>
+          <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+
           <div className="bg-white p-8 rounded-2xl shadow-lg mb-8">
             <div className="space-y-6">
-              <div className="flex items-start">
-                <Phone className="h-6 w-6 text-blue-600 mr-4 mt-1" />
-                <div>
-                  <h3 className="font-bold">Phone</h3>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
-                </div>
-              </div>
               <div className="flex items-start">
                 <Mail className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                 <div>
@@ -50,10 +36,19 @@ export default function ContactPage() {
                   <p className="text-gray-600">info@vivinsolutions.com</p>
                 </div>
               </div>
+
+              <div className="flex items-start">
+                <Phone className="h-6 w-6 text-blue-600 mr-4 mt-1" />
+                <div>
+                  <h3 className="font-bold">Phone</h3>
+                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                </div>
+              </div>
+
               <div className="flex items-start">
                 <MapPin className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                 <div>
-                  <h3 className="font-bold">Office</h3>
+                  <h3 className="font-bold">Address</h3>
                   <p className="text-gray-600">
                     123 Marketing Street
                     <br />
@@ -63,19 +58,13 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start">
-                <MessageCircle className="h-6 w-6 text-blue-600 mr-4 mt-1" />
-                <div>
-                  <h3 className="font-bold">Chat</h3>
-                  <p className="text-gray-600">Live Chat Option</p>
-                </div>
-              </div>
+
               <div className="flex items-start">
                 <Clock className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                 <div>
-                  <h3 className="font-bold">Available</h3>
+                  <h3 className="font-bold">Business Hours</h3>
                   <p className="text-gray-600">
-                    Monday - Friday: 10:00 AM - 6:00 PM
+                    Monday - Friday: 9:00 AM - 5:00 PM
                     <br />
                     Saturday - Sunday: Closed
                   </p>
@@ -98,9 +87,7 @@ export default function ContactPage() {
       </div>
 
       <div className="mt-16">
-        <h2 className="text-2xl font-bold mb-6">
-          Let’s turn your vision into action. Contact us now.
-        </h2>
+        <h2 className="text-2xl font-bold mb-6">Find Us</h2>
         <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-lg">
           {/* Google Maps iframe */}
           <iframe
