@@ -97,6 +97,7 @@ export default function EditServicePage() {
           : [""]
       );
       setServiceId(service.id);
+      setImageUrl(service.image_url || ""); // <-- Add this line
 
       // Set selected subcategory if any
       if (subs && subs.length > 0) {
