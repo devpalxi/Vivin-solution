@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-import type { CaseStudy } from "@/lib/types"
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import type { CaseStudy } from "@/lib/types";
 
 interface CaseStudyCardProps {
-  caseStudy: CaseStudy
+  caseStudy: CaseStudy;
 }
 
 export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
@@ -15,12 +15,15 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
     <Link href={`/portfolio/${caseStudy.slug}`}>
       <motion.div
         className="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col"
-        whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+        whileHover={{
+          y: -5,
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        }}
         transition={{ duration: 0.3 }}
       >
         <div className="relative h-48">
           <Image
-            src={caseStudy.image || "/placeholder.svg?height=400&width=600"}
+            src={caseStudy.image_url || "/placeholder.svg?height=400&width=600"}
             alt={caseStudy.title}
             fill
             className="object-cover"
@@ -29,7 +32,10 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
         <div className="p-6 flex flex-col flex-grow">
           <div className="flex flex-wrap gap-2 mb-3">
             {caseStudy.tags.slice(0, 2).map((tag, index) => (
-              <span key={index} className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+              <span
+                key={index}
+                className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs"
+              >
                 {tag}
               </span>
             ))}
@@ -42,5 +48,5 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
         </div>
       </motion.div>
     </Link>
-  )
+  );
 }

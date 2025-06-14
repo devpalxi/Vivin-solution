@@ -1,41 +1,57 @@
-import type { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, CheckCircle, ArrowRight } from "lucide-react"
-import { getCaseStudy, getCaseStudies } from "@/lib/case-studies"
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, CheckCircle, ArrowRight } from "lucide-react";
+import { getCaseStudy, getCaseStudies } from "@/app/actions/case-studies"; // <-- use the DB function
+import { supabasePublic } from "@/lib/supabase/public";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const caseStudy = getCaseStudy(params.slug)
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const caseStudy = await getCaseStudy(params.slug); // <-- await the async DB call
 
   if (!caseStudy) {
     return {
       title: "Case Study Not Found",
-    }
+    };
   }
 
   return {
     title: `${caseStudy.title} - Case Study`,
     description: caseStudy.summary,
-  }
+  };
 }
 
 export async function generateStaticParams() {
-  const caseStudies = getCaseStudies()
-  return caseStudies.map((study) => ({
+  const { data: caseStudies } = await supabasePublic
+    .from("case_studies")
+    .select("slug");
+  return (caseStudies || []).map((study) => ({
     slug: study.slug,
-  }))
+  }));
 }
 
-export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const caseStudy = getCaseStudy(params.slug)
+export default async function CaseStudyPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const caseStudy = await getCaseStudy(params.slug); // <-- await the async DB call
 
   if (!caseStudy) {
-    return <div className="container mx-auto px-4 py-12">Case study not found</div>
+    return (
+      <div className="container mx-auto px-4 py-12">Case study not found</div>
+    );
   }
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <Link href="/portfolio" className="inline-flex items-center text-blue-600 mb-8 hover:underline">
+      <Link
+        href="/portfolio"
+        className="inline-flex items-center text-blue-600 mb-8 hover:underline"
+      >
         <ArrowLeft className="h-4 w-4 mr-2" /> Back to Portfolio
       </Link>
 
@@ -44,7 +60,10 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
         <p className="text-xl text-gray-600 mb-6">{caseStudy.summary}</p>
         <div className="flex flex-wrap gap-2">
           {caseStudy.tags.map((tag, index) => (
-            <span key={index} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+            <span
+              key={index}
+              className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+            >
               {tag}
             </span>
           ))}
@@ -53,7 +72,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
       <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl mb-12">
         <Image
-          src={caseStudy.image || "/placeholder.svg?height=1000&width=1920"}
+          src={caseStudy.image_url || "/placeholder.svg?height=1000&width=1920"}
           alt={caseStudy.title}
           fill
           className="object-cover"
@@ -80,7 +99,9 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {caseStudy.results.map((result, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-              <div className="text-3xl font-bold text-blue-600 mb-2">{result.stat}</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                {result.stat}
+              </div>
               <div className="text-lg">{result.description}</div>
             </div>
           ))}
@@ -101,7 +122,9 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
       {caseStudy.testimonial && (
         <div className="bg-blue-50 p-8 rounded-2xl mb-16">
-          <div className="text-xl italic mb-4">"{caseStudy.testimonial.quote}"</div>
+          <div className="text-xl italic mb-4">
+            "{caseStudy.testimonial.quote}"
+          </div>
           <div className="font-bold">{caseStudy.testimonial.author}</div>
           <div className="text-gray-600">
             {caseStudy.testimonial.role}, {caseStudy.testimonial.company}
@@ -112,8 +135,12 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
       <div className="bg-gray-100 p-8 rounded-2xl">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold mb-2">Ready to achieve similar results?</h2>
-            <p className="text-lg">Let's discuss how we can help your business grow.</p>
+            <h2 className="text-2xl font-bold mb-2">
+              Ready to achieve similar results?
+            </h2>
+            <p className="text-lg">
+              Let's discuss how we can help your business grow.
+            </p>
           </div>
           <Link
             href="/contact"
@@ -124,5 +151,5 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
         </div>
       </div>
     </div>
-  )
+  );
 }

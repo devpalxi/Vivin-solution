@@ -1,15 +1,16 @@
-import type { Metadata } from "next"
-import PageHeader from "@/components/ui/page-header"
-import { CaseStudyGrid } from "@/components/sections/case-study-grid"
-import { getCaseStudies } from "@/lib/case-studies"
+import type { Metadata } from "next";
+import PageHeader from "@/components/ui/page-header";
+import { CaseStudyGrid } from "@/components/sections/case-study-grid";
+import { getCaseStudies } from "@/app/actions/case-studies"; // <-- use the DB function
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description: "Explore our portfolio of successful client projects and case studies across various industries.",
-}
+  description:
+    "Explore our portfolio of successful client projects and case studies across various industries.",
+};
 
-export default function PortfolioPage() {
-  const caseStudies = getCaseStudies()
+export default async function PortfolioPage() {
+  const caseStudies = await getCaseStudies(); // <-- await the async DB call
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -20,5 +21,5 @@ export default function PortfolioPage() {
 
       <CaseStudyGrid caseStudies={caseStudies} />
     </div>
-  )
+  );
 }

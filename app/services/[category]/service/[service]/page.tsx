@@ -5,6 +5,19 @@ import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import PageHeader from "@/components/ui/page-header";
 import { getService, getServiceCategory } from "@/app/actions/services";
 
+const serviceHeadings: Record<string, string> = {
+  content_marketing__be_the_story_that_lasts:
+    "Engage Your Audience with Powerful Content!",
+  ppc_management__fast_returns_true_appeal:
+    "Drive Instant Traffic with PPC Solutions!",
+  seo_services__rise_genuinely_rule_earnestly:
+    "Boost Your Search Rankings Today!",
+  social_media_management_strategies_that_engage:
+    "Grow Your Brand’s Presence Online Now!",
+  web_development_websites_that_speak_your_brand_voice:
+    "Build Your Dream Website with Us!",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -99,60 +112,14 @@ export default async function ServicePage({
           </div>
         </div>
       </div>
-
-      {/* <div className="mt-16">
-        <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-2xl shadow-lg">
-            <h3 className="text-xl font-bold mb-2">
-              How long does it take to see results?
-            </h3>
-            <p>
-              While some improvements can be seen within weeks, significant
-              results typically take 3-6 months depending on your industry,
-              competition, and starting point.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg">
-            <h3 className="text-xl font-bold mb-2">
-              Do you offer customized packages?
-            </h3>
-            <p>
-              Yes, all our services are tailored to your specific business needs
-              and goals. We don't believe in one-size-fits-all solutions.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg">
-            <h3 className="text-xl font-bold mb-2">
-              How do you measure success?
-            </h3>
-            <p>
-              We establish clear KPIs at the beginning of our engagement and
-              provide regular reports showing progress against these metrics.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg">
-            <h3 className="text-xl font-bold mb-2">
-              What makes you different from other agencies?
-            </h3>
-            <p>
-              Our focus on measurable results, transparent communication, and
-              long-term partnerships sets us apart from agencies that prioritize
-              vanity metrics.
-            </p>
-          </div>
-        </div>
-      </div> */}
-
       <div className="mt-16 bg-blue-50 p-8 rounded-2xl">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold mb-2">
-              Ready to get started with {serviceData.name}?
+              {serviceHeadings[serviceData.slug] ||
+                `Ready to get started with ${category.title}?`}
             </h2>
-            <p className="text-lg">
-              Schedule a free consultation with our experts.
-            </p>
+            <p className="text-lg">Book your free digital strategy.</p>
           </div>
           <Link
             href="/contact"
