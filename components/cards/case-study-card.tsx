@@ -41,8 +41,8 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             ))}
           </div>
           <h3 className="text-xl font-bold mb-2">{caseStudy.title}</h3>
-          <p className="text-gray-600 mb-4 flex-grow">{caseStudy.summary}</p>
-          <div className="flex items-center text-blue-600 font-medium">
+          <p className="text-text-light mb-4 flex-grow">{caseStudy.summary}</p>
+          <div className="flex items-center text-accent1 font-medium">
             View Case Study <ArrowRight className="ml-2 h-4 w-4" />
           </div>
         </div>

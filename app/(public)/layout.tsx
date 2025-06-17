@@ -1,7 +1,9 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
+import Navbar from "@/components/navigation/navbar";
+import Footer from "@/components/navigation/footer";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 import { Analytics } from "@/components/analytics";
 import { CRMIntegration } from "@/components/integrations/crm-integration";
@@ -52,10 +54,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Check if the current path is an admin route
+  const isAdminRoute =
+    typeof window !== "undefined"
+      ? window.location.pathname.startsWith("/admin")
+      : false;
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+        {isAdminRoute ? (
+          // For admin routes, just render the children (which will use the admin layout)
+          <>{children}</>
+        ) : (
+          // For non-admin routes, use the regular layout with Navbar and Footer
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        )}
         <CookieConsent />
         <Suspense fallback={null}>
           <Analytics />

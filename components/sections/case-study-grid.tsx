@@ -1,22 +1,28 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { CaseStudyCard } from "@/components/cards/case-study-card"
-import type { CaseStudy } from "@/lib/types"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { CaseStudyCard } from "@/components/cards/case-study-card";
+import type { CaseStudy } from "@/lib/types";
 
 interface CaseStudyGridProps {
-  caseStudies: CaseStudy[]
+  caseStudies: CaseStudy[];
 }
 
 export function CaseStudyGrid({ caseStudies }: CaseStudyGridProps) {
-  const [filter, setFilter] = useState("all")
+  const [filter, setFilter] = useState("all");
 
   // Get unique categories from case studies
-  const categories = ["all", ...new Set(caseStudies.flatMap((study) => study.tags))]
+  const categories = [
+    "all",
+    ...new Set(caseStudies.flatMap((study) => study.tags)),
+  ];
 
   // Filter case studies based on selected category
-  const filteredStudies = filter === "all" ? caseStudies : caseStudies.filter((study) => study.tags.includes(filter))
+  const filteredStudies =
+    filter === "all"
+      ? caseStudies
+      : caseStudies.filter((study) => study.tags.includes(filter));
 
   return (
     <div>
@@ -26,7 +32,9 @@ export function CaseStudyGrid({ caseStudies }: CaseStudyGridProps) {
             key={index}
             onClick={() => setFilter(category)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              filter === category ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+              filter === category
+                ? "bg-blue-600 text-white"
+                : "bg-gray-100 text-gray-800 hover:bg-gray-200"
             }`}
           >
             {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -51,9 +59,11 @@ export function CaseStudyGrid({ caseStudies }: CaseStudyGridProps) {
 
       {filteredStudies.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-xl text-gray-600">No case studies found for this category.</p>
+          <p className="text-xl text-text-light">
+            No case studies found for this category.
+          </p>
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -21,7 +21,7 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
 
       {subtitle && (
         <motion.p
-          className="text-xl text-gray-600 max-w-4xl mx-auto"
+          className="text-xl text-text-light max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}

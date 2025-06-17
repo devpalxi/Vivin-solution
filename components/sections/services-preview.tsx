@@ -34,7 +34,7 @@ export default async function ServicesPreview() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-xl text-text-light max-w-4xl mx-auto">
             Comprehensive solutions tailored to help your business grow and
             succeed in the digital landscape
           </p>
@@ -66,7 +66,7 @@ export default async function ServicesPreview() {
         <div className="text-center mt-12">
           <Link
             href="/services"
-            className="inline-flex items-center text-blue-600 font-medium hover:underline"
+            className="inline-flex items-center text-accent1 font-medium hover:underline"
           >
             View All Services <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

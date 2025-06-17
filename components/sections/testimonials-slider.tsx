@@ -41,7 +41,7 @@ export default function TestimonialsSlider() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-xl text-text-light max-w-4xl mx-auto">
             Don't just take our word for it. Here's what our clients have to say
             about working with us.
           </p>
@@ -80,7 +80,7 @@ export default function TestimonialsSlider() {
                       <h3 className="font-bold text-lg">
                         {testimonials[currentIndex].name}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-text-light">
                         {testimonials[currentIndex].role},{" "}
                         {testimonials[currentIndex].company}
                       </p>

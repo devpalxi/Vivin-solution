@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { motion } from "framer-motion"
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface TeamMemberProps {
-  name: string
-  role: string
-  bio: string
-  image: string
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
 }
 
 export function TeamMember({ name, role, bio, image }: TeamMemberProps) {
@@ -21,13 +21,18 @@ export function TeamMember({ name, role, bio, image }: TeamMemberProps) {
       whileHover={{ y: -5 }}
     >
       <div className="relative h-64">
-        <Image src={image || "/placeholder.svg?height=400&width=400"} alt={name} fill className="object-cover" />
+        <Image
+          src={image || "/placeholder.svg?height=400&width=400"}
+          alt={name}
+          fill
+          className="object-cover"
+        />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold mb-1">{name}</h3>
-        <p className="text-blue-600 mb-4">{role}</p>
-        <p className="text-gray-600">{bio}</p>
+        <p className="text-accent1 mb-4">{role}</p>
+        <p className="text-text-light">{bio}</p>
       </div>
     </motion.div>
-  )
+  );
 }

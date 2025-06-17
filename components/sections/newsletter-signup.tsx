@@ -62,7 +62,7 @@ export default function NewsletterSignup() {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white rounded px-4 py-2 font-medium hover:bg-blue-700 transition-colors"
+            className="bg-accent2 text-white rounded px-4 py-2 font-medium hover:bg-accent2/80 transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Subscribing..." : "Subscribe"}

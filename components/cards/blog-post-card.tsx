@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Calendar, Clock } from "lucide-react"
-import type { BlogPost } from "@/lib/types"
-import { formatDate } from "@/lib/utils"
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Calendar, Clock } from "lucide-react";
+import type { BlogPost } from "@/lib/types";
+import { formatDate } from "@/lib/utils";
 
 interface BlogPostCardProps {
-  post: BlogPost
+  post: BlogPost;
 }
 
 export function BlogPostCard({ post }: BlogPostCardProps) {
@@ -16,7 +16,10 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
     <Link href={`/blog/${post.slug}`}>
       <motion.div
         className="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col"
-        whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)" }}
+        whileHover={{
+          y: -5,
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        }}
         transition={{ duration: 0.3 }}
       >
         <div className="relative h-48">
@@ -29,10 +32,12 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
         <div className="p-6 flex flex-col flex-grow">
           <div className="mb-3">
-            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">{post.category}</span>
+            <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+              {post.category}
+            </span>
           </div>
           <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-          <p className="text-gray-600 mb-4 flex-grow">{post.excerpt}</p>
+          <p className="text-text-light mb-4 flex-grow">{post.excerpt}</p>
           <div className="flex items-center text-gray-500 text-sm gap-4">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-1" />
@@ -46,5 +51,5 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
       </motion.div>
     </Link>
-  )
+  );
 }

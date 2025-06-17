@@ -1,22 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { BlogPostCard } from "@/components/cards/blog-post-card"
-import type { BlogPost } from "@/lib/types"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { BlogPostCard } from "@/components/cards/blog-post-card";
+import type { BlogPost } from "@/lib/types";
 
 interface BlogPostGridProps {
-  posts: BlogPost[]
+  posts: BlogPost[];
 }
 
 export function BlogPostGrid({ posts }: BlogPostGridProps) {
-  const [filter, setFilter] = useState("all")
+  const [filter, setFilter] = useState("all");
 
   // Get unique categories from blog posts
-  const categories = ["all", ...new Set(posts.map((post) => post.category))]
+  const categories = ["all", ...new Set(posts.map((post) => post.category))];
 
   // Filter blog posts based on selected category
-  const filteredPosts = filter === "all" ? posts : posts.filter((post) => post.category === filter)
+  const filteredPosts =
+    filter === "all" ? posts : posts.filter((post) => post.category === filter);
 
   return (
     <div>
@@ -26,7 +27,9 @@ export function BlogPostGrid({ posts }: BlogPostGridProps) {
             key={index}
             onClick={() => setFilter(category)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              filter === category ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+              filter === category
+                ? "bg-blue-600 text-white"
+                : "bg-gray-100 text-gray-800 hover:bg-gray-200"
             }`}
           >
             {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -51,9 +54,11 @@ export function BlogPostGrid({ posts }: BlogPostGridProps) {
 
       {filteredPosts.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-xl text-gray-600">No blog posts found for this category.</p>
+          <p className="text-xl text-text-light">
+            No blog posts found for this category.
+          </p>
         </div>
       )}
     </div>
-  )
+  );
 }

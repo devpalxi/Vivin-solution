@@ -18,7 +18,7 @@ export default function ClientLogos() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold mb-4">Trusted by Leading Brands</h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-xl text-text-light max-w-4xl mx-auto">
             We've had the privilege of working with some amazing companies
           </p>
         </motion.div>

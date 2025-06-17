@@ -1,44 +1,44 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Download } from "lucide-react"
-import type { Resource } from "@/lib/types"
+import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import type { Resource } from "@/lib/types";
 
 interface ResourceCardProps {
-  resource: Resource
+  resource: Resource;
 }
 
 export function ResourceCard({ resource }: ResourceCardProps) {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [email, setEmail] = useState("")
-  const [error, setError] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!email) {
-      setError("Please enter your email address")
-      return
+      setError("Please enter your email address");
+      return;
     }
 
-    setIsSubmitting(true)
-    setError("")
+    setIsSubmitting(true);
+    setError("");
 
     // Simulate API call
     setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSuccess(true)
-      setEmail("")
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setEmail("");
 
       // Simulate download
-      window.open(resource.fileUrl || "#", "_blank")
-    }, 1500)
-  }
+      window.open(resource.fileUrl || "#", "_blank");
+    }, 1500);
+  };
 
   return (
     <motion.div
@@ -56,13 +56,17 @@ export function ResourceCard({ resource }: ResourceCardProps) {
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <div className="mb-3">
-          <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">{resource.type}</span>
+          <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+            {resource.type}
+          </span>
         </div>
         <h3 className="text-xl font-bold mb-2">{resource.title}</h3>
-        <p className="text-gray-600 mb-4 flex-grow">{resource.description}</p>
+        <p className="text-text-light mb-4 flex-grow">{resource.description}</p>
 
         {isSuccess ? (
-          <div className="text-green-600 font-medium">Thank you! Your download should begin shortly.</div>
+          <div className="text-green-600 font-medium">
+            Thank you! Your download should begin shortly.
+          </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -79,7 +83,7 @@ export function ResourceCard({ resource }: ResourceCardProps) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-70"
+              className="w-full flex items-center justify-center px-4 py-2 bg-accent2 text-white font-medium rounded-lg hover:bg-accent2/80 transition-colors disabled:opacity-70"
             >
               {isSubmitting ? (
                 "Processing..."
@@ -93,5 +97,5 @@ export function ResourceCard({ resource }: ResourceCardProps) {
         )}
       </div>
     </motion.div>
-  )
+  );
 }

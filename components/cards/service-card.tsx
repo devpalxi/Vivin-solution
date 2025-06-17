@@ -84,12 +84,12 @@ export function ServiceCard({
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="bg-blue-100 text-blue-600 p-3 rounded-xl w-fit mb-6">
+        <div className="bg-blue-100 text-accent1 p-3 rounded-xl w-fit mb-6">
           <IconComponent className="h-6 w-6" />
         </div>
         <h3 className="text-xl font-bold mb-3">{title}</h3>
-        <p className="text-gray-600 mb-6 flex-grow">{description}</p>
-        <div className="flex items-center text-blue-600 font-medium">
+        <p className="text-text-light mb-6 flex-grow">{description}</p>
+        <div className="flex items-center text-accent1 font-medium">
           Learn More <ArrowRight className="ml-2 h-4 w-4" />
         </div>
       </motion.div>

@@ -1,85 +1,87 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { X } from "lucide-react"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { X } from "lucide-react";
+import Link from "next/link";
 
 export function CookieConsent() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
   const [preferences, setPreferences] = useState({
     essential: true, // Always required
     analytics: false,
     marketing: false,
-  })
-  const [showPreferences, setShowPreferences] = useState(false)
+  });
+  const [showPreferences, setShowPreferences] = useState(false);
 
   useEffect(() => {
     // Check if user has already accepted cookies
-    const hasAccepted = localStorage.getItem("cookieConsent")
+    const hasAccepted = localStorage.getItem("cookieConsent");
 
     if (!hasAccepted) {
       // Show cookie consent after a short delay
       const timer = setTimeout(() => {
-        setIsVisible(true)
-      }, 1000)
+        setIsVisible(true);
+      }, 1000);
 
-      return () => clearTimeout(timer)
+      return () => clearTimeout(timer);
     } else {
       // If they have accepted, load their preferences
       try {
-        const savedPreferences = JSON.parse(localStorage.getItem("cookiePreferences") || "{}")
+        const savedPreferences = JSON.parse(
+          localStorage.getItem("cookiePreferences") || "{}"
+        );
         if (savedPreferences) {
-          setPreferences((prev) => ({ ...prev, ...savedPreferences }))
+          setPreferences((prev) => ({ ...prev, ...savedPreferences }));
         }
       } catch (e) {
-        console.error("Error parsing cookie preferences", e)
+        console.error("Error parsing cookie preferences", e);
       }
     }
-  }, [])
+  }, []);
 
   const acceptAllCookies = () => {
     const allAccepted = {
       essential: true,
       analytics: true,
       marketing: true,
-    }
-    localStorage.setItem("cookieConsent", "accepted")
-    localStorage.setItem("cookiePreferences", JSON.stringify(allAccepted))
-    setPreferences(allAccepted)
-    setIsVisible(false)
-  }
+    };
+    localStorage.setItem("cookieConsent", "accepted");
+    localStorage.setItem("cookiePreferences", JSON.stringify(allAccepted));
+    setPreferences(allAccepted);
+    setIsVisible(false);
+  };
 
   const acceptEssentialOnly = () => {
     const essentialOnly = {
       essential: true,
       analytics: false,
       marketing: false,
-    }
-    localStorage.setItem("cookieConsent", "accepted")
-    localStorage.setItem("cookiePreferences", JSON.stringify(essentialOnly))
-    setPreferences(essentialOnly)
-    setIsVisible(false)
-  }
+    };
+    localStorage.setItem("cookieConsent", "accepted");
+    localStorage.setItem("cookiePreferences", JSON.stringify(essentialOnly));
+    setPreferences(essentialOnly);
+    setIsVisible(false);
+  };
 
   const savePreferences = () => {
-    localStorage.setItem("cookieConsent", "accepted")
-    localStorage.setItem("cookiePreferences", JSON.stringify(preferences))
-    setIsVisible(false)
-  }
+    localStorage.setItem("cookieConsent", "accepted");
+    localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
+    setIsVisible(false);
+  };
 
   const togglePreferences = () => {
-    setShowPreferences(!showPreferences)
-  }
+    setShowPreferences(!showPreferences);
+  };
 
   const handlePreferenceChange = (type: keyof typeof preferences) => {
     setPreferences((prev) => ({
       ...prev,
       [type]: !prev[type],
-    }))
-  }
+    }));
+  };
 
   if (!isVisible) {
-    return null
+    return null;
   }
 
   return (
@@ -96,9 +98,11 @@ export function CookieConsent() {
           </button>
         </div>
 
-        <p className="text-gray-600 mb-4">
-          We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our
-          traffic. By clicking "Accept All", you consent to our use of cookies. You can also customize your preferences.
+        <p className="text-text-light mb-4">
+          We use cookies to enhance your browsing experience, serve personalized
+          ads or content, and analyze our traffic. By clicking "Accept All", you
+          consent to our use of cookies. You can also customize your
+          preferences.
         </p>
 
         {showPreferences && (
@@ -107,7 +111,8 @@ export function CookieConsent() {
               <div>
                 <h4 className="font-medium">Essential Cookies</h4>
                 <p className="text-sm text-gray-500">
-                  Required for the website to function properly. Cannot be disabled.
+                  Required for the website to function properly. Cannot be
+                  disabled.
                 </p>
               </div>
               <input type="checkbox" checked disabled className="h-4 w-4" />
@@ -116,7 +121,9 @@ export function CookieConsent() {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-medium">Analytics Cookies</h4>
-                <p className="text-sm text-gray-500">Help us understand how visitors interact with our website.</p>
+                <p className="text-sm text-gray-500">
+                  Help us understand how visitors interact with our website.
+                </p>
               </div>
               <input
                 type="checkbox"
@@ -129,7 +136,9 @@ export function CookieConsent() {
             <div className="flex items-center justify-between">
               <div>
                 <h4 className="font-medium">Marketing Cookies</h4>
-                <p className="text-sm text-gray-500">Used to deliver relevant ads and track their performance.</p>
+                <p className="text-sm text-gray-500">
+                  Used to deliver relevant ads and track their performance.
+                </p>
               </div>
               <input
                 type="checkbox"
@@ -173,12 +182,12 @@ export function CookieConsent() {
 
         <div className="mt-4 text-sm text-gray-500">
           For more information, please read our{" "}
-          <Link href="/privacy-policy" className="text-blue-600 hover:underline">
+          <Link href="/privacy-policy" className="text-accent1 hover:underline">
             Privacy Policy
           </Link>
           .
         </div>
       </div>
     </div>
-  )
+  );
 }

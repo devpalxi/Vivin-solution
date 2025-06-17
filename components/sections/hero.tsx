@@ -48,13 +48,13 @@ export default function Hero({
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="text-blue-600 font-semibold mb-3 text-lg">
+            <div className="text-accent1 font-semibold mb-3 text-lg">
               Marketing That Moves the Needle
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               {title}
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-lg">{subtitle}</p>
+            <p className="text-xl text-text-light mb-8 max-w-lg">{subtitle}</p>
 
             <div
               className="p-4 rounded-[10px] shadow-md mb-8"
@@ -90,7 +90,7 @@ export default function Hero({
             <div className="flex flex-wrap gap-4">
               <Link
                 href={ctaLink}
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-accent2 text-white font-medium rounded-lg hover:bg-accent2/80 transition-colors"
               >
                 {ctaText} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -98,7 +98,7 @@ export default function Hero({
               {secondaryCtaText && secondaryCtaLink && (
                 <Link
                   href={secondaryCtaLink}
-                  className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-white text-accent1 font-medium rounded-lg border border-blue-600 hover:bg-blue-50 transition-colors"
                 >
                   {secondaryCtaText}
                 </Link>

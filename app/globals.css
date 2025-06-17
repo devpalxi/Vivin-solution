@@ -1,10 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Manrope:wght@400;700&family=Poppins:wght@400;700&family=Rubik:wght@400;700&family=Sora:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body,
+  p {
+    font-family: "Manrope", "Inter", "Rubik", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", "Sora", "Manrope", sans-serif;
+    font-weight: 700;
+  }
+  .text-accent1 {
+    font-family: "Manrope", "Inter", "Rubik", sans-serif;
+  }
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 15, 23, 42; /* #0F172A */
+  --background-rgb: 249, 250, 251; /* #F9FAFB */
 }
 
 body {
@@ -13,13 +34,37 @@ body {
 }
 
 @layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold;
+  :root {
+    /* Brand Colors */
+    --primary: 222 47% 11%; /* #0F172A */
+    --primary-foreground: 210 20% 98%; /* #F9FAFB */
+    --accent1: 217 91% 60%; /* #3B82F6 */
+    --accent1-foreground: 0 0% 100%;
+    --accent2: 188 94% 43%; /* #06B6D4 */
+    --accent2-foreground: 0 0% 100%;
+    --background: 210 20% 98%; /* #F9FAFB */
+    --foreground: 222 47% 11%; /* #0F172A */
+    --text-light: 216 15% 65%; /* #94A3B8 */
+
+    /* Keep existing system variables for compatibility */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%; /* Match primary */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%; /* Match primary */
+    --secondary: 210 20% 98%; /* Match background */
+    --secondary-foreground: 222 47% 11%; /* Match primary */
+    --muted: 210 20% 98%; /* Match background */
+    --muted-foreground: 216 15% 65%; /* Match text-light */
+    --accent: 217 91% 60%; /* Match accent1 */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%; /* Keep original */
+    --destructive-foreground: 0 0% 98%; /* Keep original */
+    --border: 216 15% 65%; /* Match text-light */
+    --input: 216 15% 65%; /* Match text-light */
+    --ring: 222 47% 11%; /* Match primary */
+
+    /* Keep other existing variables */
+    --radius: 0.5rem;
   }
 
   h1 {

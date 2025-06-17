@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -13,15 +13,15 @@ const navigation = [
   { name: "Blog", href: "/blog" },
   { name: "Resources", href: "/resources" },
   { name: "Contact", href: "/contact" },
-]
+];
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="container mx-auto px-4 flex items-center justify-between py-4">
+      <nav className="container mx-auto px-4 flex items-center justify-between py-4 font-body">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <span className="sr-only">Vivin Solutions</span>
@@ -38,7 +38,9 @@ export default function Navbar() {
               key={item.name}
               href={item.href}
               className={`text-sm font-medium transition-colors ${
-                pathname === item.href ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
+                pathname === item.href
+                  ? "text-accent1"
+                  : "text-gray-700 hover:text-accent1"
               }`}
             >
               {item.name}
@@ -49,7 +51,7 @@ export default function Navbar() {
         <div className="hidden md:flex">
           <Link
             href="/contact"
-            className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-accent2 text-white font-medium rounded-lg hover:bg-accent2/80 transition-colors"
           >
             Get Your Free Strategy
           </Link>
@@ -82,8 +84,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   pathname === item.href
-                    ? "bg-blue-50 text-blue-600"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                    ? "bg-blue-50 text-accent1"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-accent1"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -101,5 +103,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }
