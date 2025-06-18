@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Hero from "@/components/sections/hero";
 import ValueProposition from "@/components/sections/value-proposition";
 import ServicesPreview from "@/components/sections/services-preview";
-import TestimonialsSlider from "@/components/sections/testimonials-slider";
-import ClientLogos from "@/components/sections/client-logos";
+import TestimonialsSliderServer from "@/components/sections/testimonials-slider-server";
+import ClientLogosServer from "@/components/sections/client-logos-server";
 import CaseStudiesPreview from "@/components/sections/case-studies-preview";
 import NewsletterSignup from "@/components/sections/newsletter-signup";
 
@@ -26,8 +26,8 @@ export default function HomePage() {
       />
       <ValueProposition />
       <ServicesPreview />
-      <TestimonialsSlider />
-      <ClientLogos />
+      <TestimonialsSliderServer />
+      <ClientLogosServer />
       <CaseStudiesPreview />
       <NewsletterSignup />
     </>

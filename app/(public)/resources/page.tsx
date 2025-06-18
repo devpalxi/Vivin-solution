@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/ui/page-header";
-import { ResourceCard } from "@/components/cards/resource-card";
-import { getResources } from "@/lib/resources";
+import ResourcesList from "./resources-list";
 import NewsletterSignup from "@/components/sections/newsletter-signup";
 
 export const metadata: Metadata = {
@@ -12,8 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function ResourcesPage() {
-  const resources = getResources();
-
   return (
     <div className="container mx-auto px-4 py-12">
       <PageHeader
@@ -21,11 +18,7 @@ export default function ResourcesPage() {
         subtitle="Download free guides, templates, and resources to help grow your business"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        {resources.map((resource, index) => (
-          <ResourceCard key={index} resource={resource} />
-        ))}
-      </div>
+      <ResourcesList />
 
       <div className="mt-20 bg-gray-50 p-8 rounded-2xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

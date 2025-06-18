@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import Navbar from "@/components/navigation/navbar";
 import Footer from "@/components/navigation/footer";
+import FooterServer from "@/components/navigation/footer-server";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 import { Analytics } from "@/components/analytics";
 import { CRMIntegration } from "@/components/integrations/crm-integration";
@@ -71,7 +72,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
-            <Footer />
+            <FooterServer />
           </div>
         )}
         <CookieConsent />

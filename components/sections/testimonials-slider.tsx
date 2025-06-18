@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { getTestimonials } from "@/lib/testimonials";
 
-export default function TestimonialsSlider() {
-  const testimonials = getTestimonials();
+export default function TestimonialsSlider({
+  testimonials,
+}: {
+  testimonials: any[];
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextTestimonial = () => {
@@ -26,7 +28,9 @@ export default function TestimonialsSlider() {
     }, 8000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
+
+  if (!testimonials.length) return null;
 
   return (
     <section className="py-20 bg-gray-50">
@@ -81,7 +85,11 @@ export default function TestimonialsSlider() {
                         {testimonials[currentIndex].name}
                       </h3>
                       <p className="text-text-light">
-                        {testimonials[currentIndex].role},{" "}
+                        {testimonials[currentIndex].role}
+                        {testimonials[currentIndex].role &&
+                        testimonials[currentIndex].company
+                          ? ", "
+                          : ""}
                         {testimonials[currentIndex].company}
                       </p>
                     </div>

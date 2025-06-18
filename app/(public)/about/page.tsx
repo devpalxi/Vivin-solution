@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHeader from "@/components/ui/page-header";
 import { TeamMember } from "@/components/sections/team-section";
+import { getTeamMembers } from "@/app/actions/team"; // <-- Import your action
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -9,34 +10,10 @@ export const metadata: Metadata = {
     "Learn about Vivin Digital, our mission, values, and the team behind our premium marketing services.",
 };
 
-const teamMembers = [
-  {
-    name: "Sarah Johnson",
-    role: "Founder & CEO",
-    bio: "With over 15 years of experience in digital marketing, Sarah founded Vivin Solutions with a vision to help businesses achieve meaningful growth.",
-    image: "/images/team/sarah-johnson.jpg",
-  },
-  {
-    name: "Michael Chen",
-    role: "Creative Director",
-    bio: "Michael brings 10+ years of design expertise, crafting visual identities that resonate with audiences and drive brand recognition.",
-    image: "/images/team/michael-chen.jpg",
-  },
-  {
-    name: "Priya Patel",
-    role: "Head of Digital Strategy",
-    bio: "Priya specializes in creating data-driven marketing strategies that deliver measurable results for our clients.",
-    image: "/images/team/priya-patel.jpg",
-  },
-  {
-    name: "James Wilson",
-    role: "Technical Director",
-    bio: "James leads our development team, bringing technical excellence and innovation to every digital project.",
-    image: "/images/team/james-wilson.jpg",
-  },
-];
+export default async function AboutPage() {
+  // Fetch team members from the database
+  const teamMembers = await getTeamMembers();
 
-export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       <PageHeader
@@ -163,8 +140,14 @@ export default function AboutPage() {
       <section>
         <h2 className="text-3xl font-bold mb-10 text-center">Meet Our Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
-            <TeamMember key={index} {...member} />
+          {teamMembers.map((member: any) => (
+            <TeamMember
+              key={member.id}
+              name={member.name}
+              role={member.role}
+              bio={member.bio}
+              image={member.image}
+            />
           ))}
         </div>
       </section>

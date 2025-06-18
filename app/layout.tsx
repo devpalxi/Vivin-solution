@@ -6,6 +6,7 @@ import { CookieConsent } from "@/components/ui/cookie-consent";
 import { Analytics } from "@/components/analytics";
 import { CRMIntegration } from "@/components/integrations/crm-integration";
 import { Suspense } from "react";
+import FooterServer from "@/components/navigation/footer-server";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 

@@ -2,11 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { getClients } from "@/lib/clients";
 
-export default function ClientLogos() {
-  const clients = getClients();
-
+export default function ClientLogos({ clients }: { clients: any[] }) {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">

@@ -1,6 +1,5 @@
-import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react"
-import { getServices } from "@/lib/services"
+import Link from "next/link";
+import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
 
 const navigation = {
   main: [
@@ -39,11 +38,13 @@ const navigation = {
       icon: Linkedin,
     },
   ],
-}
+};
 
-export default function Footer() {
-  const serviceCategories = getServices() || []
-
+export default function Footer({
+  serviceCategories = [],
+}: {
+  serviceCategories: any[];
+}) {
   return (
     <footer className="bg-gray-900 text-white" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
@@ -54,7 +55,8 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Vivin Solutions</h3>
             <p className="text-gray-400 mb-4">
-              Premium marketing agency helping businesses grow through strategic digital solutions.
+              Premium marketing agency helping businesses grow through strategic
+              digital solutions.
             </p>
             <div className="flex space-x-4">
               {navigation.social.map((item) => (
@@ -77,7 +79,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {navigation.main.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors">
+                  <Link
+                    href={item.href}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -117,7 +122,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {navigation.legal.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors">
+                  <Link
+                    href={item.href}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -127,9 +135,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Vivin Solutions. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Vivin Solutions. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
