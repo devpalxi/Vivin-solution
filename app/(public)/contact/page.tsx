@@ -79,8 +79,8 @@ export default function ContactPage() {
               Book a free 30-minute consultation with one of our experts to
               discuss your project.
             </p>
-            <div className="aspect-video rounded-xl overflow-hidden">
-              <CalendlyEmbed url="https://calendly.com/vivinsolutions/30min" />
+            <div className="aspect-video rounded-xl ">
+              <CalendlyEmbed url="https://calendly.com/amilakelum44/30min" />
             </div>
           </div>
         </div>
