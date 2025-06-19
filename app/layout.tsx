@@ -56,12 +56,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <CRMIntegration />
         {children}
         <CookieConsent />
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
-        <CRMIntegration />
       </body>
     </html>
   );

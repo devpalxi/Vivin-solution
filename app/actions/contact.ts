@@ -1,6 +1,7 @@
 "use server";
 
 import { createServerSupabaseClient } from "@/lib/supabase/server";
+import { sendContactToHubSpot, sendNewsletterToHubSpot } from "./hubspot";
 
 export async function submitContactForm(formData: {
   name: string;
@@ -20,6 +21,9 @@ export async function submitContactForm(formData: {
     console.error("Error submitting contact form:", error);
     return { success: false, error: error.message };
   }
+
+  // Send to HubSpot
+  await sendContactToHubSpot(formData);
 
   return { success: true, data };
 }
@@ -44,6 +48,9 @@ export async function subscribeToNewsletter(email: string) {
     console.error("Error subscribing to newsletter:", error);
     return { success: false, error: error.message };
   }
+
+  // Send to HubSpot
+  await sendNewsletterToHubSpot(email);
 
   return { success: true, data };
 }
