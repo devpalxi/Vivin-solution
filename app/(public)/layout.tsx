@@ -8,6 +8,7 @@ import FooterServer from "@/components/navigation/footer-server";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 import { Analytics } from "@/components/analytics";
 import { CRMIntegration } from "@/components/integrations/crm-integration";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -64,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <GoogleAnalytics />
         {isAdminRoute ? (
           // For admin routes, just render the children (which will use the admin layout)
           <>{children}</>

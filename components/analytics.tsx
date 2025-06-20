@@ -4,6 +4,27 @@ import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { FacebookPixel } from "./analytics/facebook-pixel";
 
+// Extend the Window interface to include gtag
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+export function GoogleAnalyticsPageView() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("config", "G-34H60CS0Z4", {
+        page_path: pathname,
+      });
+    }
+  }, [pathname]);
+
+  return null;
+}
+
 function AnalyticsContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -20,7 +41,12 @@ function AnalyticsContent() {
     }
   }, [pathname, searchParams]);
 
-  return <FacebookPixel />;
+  return (
+    <>
+      <FacebookPixel />
+      <GoogleAnalyticsPageView />
+    </>
+  );
 }
 
 export function Analytics() {
