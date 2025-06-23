@@ -5,6 +5,8 @@ import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { getBlogPost } from "@/app/actions/blog";
 import { formatDate } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {
