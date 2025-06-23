@@ -5,6 +5,8 @@ import { ArrowLeft, CheckCircle, ArrowRight } from "lucide-react";
 import { getCaseStudy } from "@/app/actions/case-studies";
 import { supabasePublic } from "@/lib/supabase/public";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {
