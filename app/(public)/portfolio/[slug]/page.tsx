@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle, ArrowRight } from "lucide-react";
-import { getCaseStudy, getCaseStudies } from "@/app/actions/case-studies"; // <-- use the DB function
+import { getCaseStudy } from "@/app/actions/case-studies";
 import { supabasePublic } from "@/lib/supabase/public";
 
 export async function generateMetadata({
@@ -10,7 +10,11 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const caseStudy = await getCaseStudy(params.slug); // <-- await the async DB call
+  const { data: caseStudy } = await supabasePublic
+    .from("case_studies")
+    .select("*")
+    .eq("slug", params.slug)
+    .single();
 
   if (!caseStudy) {
     return {
@@ -38,7 +42,7 @@ export default async function CaseStudyPage({
 }: {
   params: { slug: string };
 }) {
-  const caseStudy = await getCaseStudy(params.slug); // <-- await the async DB call
+  const caseStudy = await getCaseStudy(params.slug);
 
   if (!caseStudy) {
     return (
