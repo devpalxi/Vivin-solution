@@ -80,7 +80,7 @@ export default function ContactPage() {
               discuss your project.
             </p>
             <div className="aspect-video rounded-xl ">
-              <CalendlyEmbed url="https://calendly.com/amilakelum44/30min" />
+              <CalendlyEmbed url="https://calendly.com/vivin242097/new-meeting" />
             </div>
           </div>
         </div>
