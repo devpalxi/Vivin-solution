@@ -16,7 +16,7 @@ export function GoogleAnalyticsPageView() {
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("config", "G-34H60CS0Z4", {
+      window.gtag("config", "G-E57778W68N", {
         page_path: pathname,
       });
     }

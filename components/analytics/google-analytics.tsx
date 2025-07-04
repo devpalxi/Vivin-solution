@@ -6,7 +6,7 @@ export function GoogleAnalytics() {
     <>
       {/* Global site tag (gtag.js) - Google Analytics */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=G-34H60CS0Z4`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-E57778W68N`}
         strategy="afterInteractive"
       />
       <Script id="ga-init" strategy="afterInteractive">
@@ -14,7 +14,7 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-34H60CS0Z4', {
+          gtag('config', 'G-E57778W68N', {
             page_path: window.location.pathname,
           });
         `}
