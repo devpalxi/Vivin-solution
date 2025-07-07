@@ -1,4 +1,4 @@
-import type { BlogPost } from "./types"
+import type { BlogPost } from "./types";
 
 export function getAllPosts(): BlogPost[] {
   return [
@@ -31,7 +31,7 @@ export function getAllPosts(): BlogPost[] {
       author: {
         name: "Sarah Johnson",
         avatar: "/placeholder.svg?height=100&width=100",
-        bio: "Content Marketing Director and founder of Vivin Solutions.",
+        bio: "Content Marketing Director and founder of Vivin Digital.",
       },
     },
     {
@@ -69,7 +69,8 @@ export function getAllPosts(): BlogPost[] {
     {
       title: "E-commerce Optimization: Boosting Your Conversion Rate",
       slug: "ecommerce-conversion-optimization",
-      excerpt: "Practical tips and strategies to optimize your e-commerce store and increase your conversion rate.",
+      excerpt:
+        "Practical tips and strategies to optimize your e-commerce store and increase your conversion rate.",
       content: "<p>This is the full content of the blog post...</p>",
       date: "2023-01-25",
       coverImage: "/placeholder.svg?height=600&width=1200",
@@ -84,7 +85,8 @@ export function getAllPosts(): BlogPost[] {
     {
       title: "The Future of Web Development: Trends to Watch",
       slug: "future-web-development-trends",
-      excerpt: "Explore the emerging technologies and methodologies that are shaping the future of web development.",
+      excerpt:
+        "Explore the emerging technologies and methodologies that are shaping the future of web development.",
       content: "<p>This is the full content of the blog post...</p>",
       date: "2022-12-12",
       coverImage: "/placeholder.svg?height=600&width=1200",
@@ -96,9 +98,9 @@ export function getAllPosts(): BlogPost[] {
         bio: "Technical Director specializing in AI and machine learning applications.",
       },
     },
-  ]
+  ];
 }
 
 export function getPost(slug: string): BlogPost | undefined {
-  return getAllPosts().find((post) => post.slug === slug)
+  return getAllPosts().find((post) => post.slug === slug);
 }

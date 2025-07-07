@@ -25,12 +25,12 @@ export default function Navbar() {
       <nav className="container mx-auto px-4 flex items-center justify-between font-body">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
-            <span className="sr-only">Vivin Solutions</span>
+            <span className="sr-only">Vivin Digital</span>
             {/* UNCOMMENT THIS DIV */}
             <div className="relative h-[7rem] w-40">
               <Image
                 src="/images/logo.png"
-                alt="Vivin Solutions"
+                alt="Vivin Digital"
                 fill
                 className="object-contain"
                 priority

@@ -56,7 +56,7 @@ export default function Footer({
             <div className="relative mb-4">
               <Image
                 src="/images/logo.png"
-                alt="Vivin Solutions"
+                alt="Vivin Digital"
                 width={160}
                 height={40}
                 className="object-contain"
@@ -145,7 +145,7 @@ export default function Footer({
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
           <p>
-            &copy; {new Date().getFullYear()} Vivin Solutions. All rights
+            &copy; {new Date().getFullYear()} Vivin Digital. All rights
             reserved.
           </p>
         </div>

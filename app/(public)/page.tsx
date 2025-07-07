@@ -10,7 +10,7 @@ import NewsletterSignup from "@/components/sections/newsletter-signup";
 export const metadata: Metadata = {
   title: "Premium Marketing Agency | Digital Solutions for Growth",
   description:
-    "Vivin Solutions helps businesses grow through strategic digital marketing, development, and business consulting services.",
+    "Vivin Digital helps businesses grow through strategic digital marketing, development, and business consulting services.",
 };
 
 export default function HomePage() {

@@ -42,7 +42,7 @@ export default function ValueProposition() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Why Choose Vivin Solutions
+            Why Choose Vivin Digital
           </h2>
           <p className="text-xl text-text-light max-w-4xl mx-auto">
             We deliver measurable results through our unique approach to digital

@@ -55,7 +55,7 @@ export default function AdminLayout({
               <div className="relative h-[7rem] w-40">
                 <Image
                   src="/images/logo.png"
-                  alt="Vivin Solutions"
+                  alt="Vivin Digital"
                   fill
                   className="object-contain"
                   priority

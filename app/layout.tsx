@@ -12,23 +12,23 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Vivin Solutions | Premium Marketing Agency",
-    template: "%s | Vivin Solutions",
+    default: "Vivin Digital | Premium Marketing Agency",
+    template: "%s | Vivin Digital",
   },
   description:
-    "Vivin Solutions is a premium marketing agency helping businesses grow through strategic digital solutions.",
+    "Vivin Digital is a premium marketing agency helping businesses grow through strategic digital solutions.",
   openGraph: {
-    title: "Vivin Solutions | Premium Marketing Agency",
+    title: "Vivin Digital | Premium Marketing Agency",
     description:
-      "Vivin Solutions is a premium marketing agency helping businesses grow through strategic digital solutions.",
+      "Vivin Digital is a premium marketing agency helping businesses grow through strategic digital solutions.",
     url: "https://vivinsolutions.com",
-    siteName: "Vivin Solutions",
+    siteName: "Vivin Digital",
     images: [
       {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Vivin Solutions",
+        alt: "Vivin Digital",
       },
     ],
     locale: "en_US",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vivin Solutions | Premium Marketing Agency",
+    title: "Vivin Digital | Premium Marketing Agency",
     description:
-      "Vivin Solutions is a premium marketing agency helping businesses grow through strategic digital solutions.",
+      "Vivin Digital is a premium marketing agency helping businesses grow through strategic digital solutions.",
     images: ["/images/og-image.jpg"],
   },
   robots: {

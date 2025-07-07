@@ -42,7 +42,7 @@ export function getCaseStudies(): CaseStudy[] {
       ],
       testimonial: {
         quote:
-          "The team at Vivin Solutions transformed our online store into a sales machine. The new design not only looks great but has significantly improved our bottom line.",
+          "The team at Vivin Digital transformed our online store into a sales machine. The new design not only looks great but has significantly improved our bottom line.",
         author: "Sarah Thompson",
         role: "E-commerce Director",
         company: "Fashion Forward",
@@ -134,7 +134,7 @@ export function getCaseStudies(): CaseStudy[] {
       ],
       testimonial: {
         quote:
-          "Vivin Solutions helped us build a social media presence from scratch. Their strategic approach and creative content have made us a recognizable brand in our category.",
+          "Vivin Digital helped us build a social media presence from scratch. Their strategic approach and creative content have made us a recognizable brand in our category.",
         author: "Jessica Lee",
         role: "Brand Manager",
         company: "NaturalGoods",
@@ -180,7 +180,7 @@ export function getCaseStudies(): CaseStudy[] {
       ],
       testimonial: {
         quote:
-          "The AI solution developed by Vivin Solutions has transformed our customer service operations. Our customers are happier, and our team can focus on solving complex issues.",
+          "The AI solution developed by Vivin Digital has transformed our customer service operations. Our customers are happier, and our team can focus on solving complex issues.",
         author: "David Chen",
         role: "Customer Experience Director",
         company: "TeleCorp",
