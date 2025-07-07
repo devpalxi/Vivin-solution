@@ -11,7 +11,7 @@ export default function LogoutButton() {
         await supabasePublic.auth.signOut();
         window.location.replace("/login");
       }}
-      className="flex items-center gap-2 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+      className="flex items-center gap-2 px-4 py-2 rounded-md text-white hover:bg-gray-100 transition-colors hover:text-gray-900"
     >
       <LogOut size={18} />
       <span>Logout</span>

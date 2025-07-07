@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -20,14 +21,22 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="container mx-auto px-4 flex items-center justify-between py-4 font-body">
+    <header className="bg-gray-900 shadow-sm sticky top-0 z-50">
+      <nav className="container mx-auto px-4 flex items-center justify-between font-body">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <span className="sr-only">Vivin Solutions</span>
-            <div className="relative h-10 w-40">
-              <span className="text-xl font-bold">Vivin Solutions</span>
+            {/* UNCOMMENT THIS DIV */}
+            <div className="relative h-[7rem] w-40">
+              <Image
+                src="/images/logo.png"
+                alt="Vivin Solutions"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
+            {/* UNCOMMENT THIS DIV */}
           </Link>
         </div>
 
@@ -39,8 +48,8 @@ export default function Navbar() {
               href={item.href}
               className={`text-sm font-medium transition-colors ${
                 pathname === item.href
-                  ? "text-accent1"
-                  : "text-gray-700 hover:text-accent1"
+                  ? "text-accent2"
+                  : "text-white hover:text-accent2"
               }`}
             >
               {item.name}

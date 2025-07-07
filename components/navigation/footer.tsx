@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 
 const navigation = {
   main: [
@@ -13,8 +14,7 @@ const navigation = {
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms of Service", href: "/terms-of-service" },
-    { name: "Cookie Policy", href: "/cookie-policy" },
+    { name: "Terms and Condition", href: "/terms-and-condition" },
   ],
   social: [
     {
@@ -53,7 +53,16 @@ export default function Footer({
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-12">
           <div>
-            <h3 className="text-xl font-bold mb-4">Vivin Solutions</h3>
+            <div className="relative mb-4">
+              <Image
+                src="/images/logo.png"
+                alt="Vivin Solutions"
+                width={160}
+                height={40}
+                className="object-contain"
+                priority
+              />
+            </div>
             <p className="text-gray-400 mb-4">
               Premium marketing agency helping businesses grow through strategic
               digital solutions.

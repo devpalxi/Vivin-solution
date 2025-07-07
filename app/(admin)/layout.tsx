@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import LogoutButton from "@/components/ui/logout-button";
 import { supabasePublic } from "@/lib/supabase/public";
 
@@ -48,11 +49,19 @@ export default function AdminLayout({
     return (
       <div className="min-h-screen flex flex-col bg-gray-50">
         {/* Admin Header */}
-        <header className="bg-white shadow-sm">
-          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <header className="bg-gray-900 shadow-sm">
+          <div className="container mx-auto px-4 flex items-center justify-between">
             <Link href="/admin" className="flex items-center">
-              <span className="font-bold text-xl">Vivin Solutions</span>
-              <span className="ml-2 text-sm text-gray-500">Admin</span>
+              <div className="relative h-[7rem] w-40">
+                <Image
+                  src="/images/logo.png"
+                  alt="Vivin Solutions"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <span className="ml-2 text-sm text-white">Admin</span>
             </Link>
             <LogoutButton />
           </div>
